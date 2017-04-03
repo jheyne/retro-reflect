@@ -37,7 +37,11 @@ public abstract class MultipatchDrawable extends Drawable {
 		final Point2D bottomLeft = PointsUtil.nearestPoint(box.getX(), box.getY() + box.getHeight(), allPatchPoints);
 		final Point2D bottomRight = PointsUtil.nearestPoint(box.getX() + box.getWidth(), box.getY() + box.getHeight(),
 				allPatchPoints);
-		return PointsUtil.lineIntersect(topLeft, bottomRight, bottomLeft, topRight);
+		Point2D intersection = PointsUtil.lineIntersect(topLeft, bottomRight, bottomLeft, topRight);
+		if (intersection == null) {
+			intersection = new Point2D.Double(box.getX() + (box.getWidth() / 2), box.getY() + (box.getHeight() / 2));
+		}
+		return intersection;
 	}
 
 	private List<Point2D> getAllPatchPoints() {

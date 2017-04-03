@@ -48,7 +48,7 @@ public class TargetSearchTest {
 	}
 
 	private static String getImagePath() {
-		String relativePath = "image-samples\\Vision Images\\Raj Lift";
+		String relativePath = "image-samples\\Vision Images\\LED Peg";
 		String rootPath = new File(TargetSearchTest.class.getClassLoader().getResource(relativePath).getFile())
 				.getParent();
 		String pathToImages = rootPath + '\\' + relativePath;
